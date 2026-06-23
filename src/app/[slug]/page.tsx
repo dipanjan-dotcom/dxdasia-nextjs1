@@ -9,6 +9,7 @@ import {
   fetchHtml,
 } from "@/lib/wp";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { resolveLazyImages } from "@/lib/lazyImages";
 
 export async function generateStaticParams() {
   const pages = await getAllPages();
@@ -55,7 +56,7 @@ export default async function Page({
       {pluginInlineCss && <style dangerouslySetInnerHTML={{ __html: pluginInlineCss }} />}
       {pluginInlineJs && <script dangerouslySetInnerHTML={{ __html: pluginInlineJs }} />}
       <h1 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
-      <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+      <div dangerouslySetInnerHTML={{ __html: resolveLazyImages(page.content.rendered) }} />
     </article>
   );
 }

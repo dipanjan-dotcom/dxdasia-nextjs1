@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug, getElementorCss } from "@/lib/wp";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { resolveLazyImages } from "@/lib/lazyImages";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -43,7 +44,7 @@ export default async function BlogPost({
       )}
       {elementorCss && <style dangerouslySetInnerHTML={{ __html: elementorCss }} />}
       <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      <div dangerouslySetInnerHTML={{ __html: resolveLazyImages(post.content.rendered) }} />
     </article>
   );
 }

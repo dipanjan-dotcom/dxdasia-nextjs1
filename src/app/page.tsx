@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPageBySlug, getElementorCss } from "@/lib/wp";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
+import { resolveLazyImages } from "@/lib/lazyImages";
 
 const FRONT_PAGE_SLUG = "home-2";
 
@@ -29,7 +30,7 @@ export default async function Home() {
         />
       )}
       {elementorCss && <style dangerouslySetInnerHTML={{ __html: elementorCss }} />}
-      <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+      <div dangerouslySetInnerHTML={{ __html: resolveLazyImages(page.content.rendered) }} />
     </>
   );
 }
