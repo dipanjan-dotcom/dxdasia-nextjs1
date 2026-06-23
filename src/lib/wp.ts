@@ -63,17 +63,27 @@ export function getPostBySlug(slug: string) {
 }
 
 export async function getElementorCss(postId: number): Promise<string | null> {
-  const res = await fetch(`${WP_BASE_URL}/wp-content/uploads/elementor/css/post-${postId}.css`, {
-    next: { revalidate: 3600 },
-  });
-  if (!res.ok) return null;
-  return res.text();
+  try {
+    const res = await fetch(`${WP_BASE_URL}/wp-content/uploads/elementor/css/post-${postId}.css`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return null;
+    return res.text();
+  } catch {
+    return null;
+  }
 }
 
+// Best-effort: scrapes the live page for inline CSS/JS not exposed by the REST API.
+// A flaky connection to the live WP site shouldn't fail the whole static build.
 async function fetchHtml(link: string): Promise<string | null> {
-  const res = await fetch(link, { next: { revalidate: 3600 } });
-  if (!res.ok) return null;
-  return res.text();
+  try {
+    const res = await fetch(link, { next: { revalidate: 3600 } });
+    if (!res.ok) return null;
+    return res.text();
+  } catch {
+    return null;
+  }
 }
 
 export async function getPluginInlineCss(html: string): Promise<string | null> {
