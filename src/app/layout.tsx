@@ -5,6 +5,14 @@ import "@/styles/elementor-frontend.css";
 import "@/styles/wp-global-styles.css";
 import "@/styles/wp-kit-global.css";
 import "@/styles/wp-custom.css";
+import "@/styles/wp-header.css";
+import "@/styles/wp-footer.css";
+import "@/styles/wp-mobile-menu.css";
+import "@/styles/wp-megamenu-1.css";
+import "@/styles/wp-megamenu-2.css";
+import "@/styles/wp-theme-full.css";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +42,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
