@@ -62,4 +62,12 @@ export function getPostBySlug(slug: string) {
   );
 }
 
+export async function getElementorCss(postId: number): Promise<string | null> {
+  const res = await fetch(`${WP_BASE_URL}/wp-content/uploads/elementor/css/post-${postId}.css`, {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) return null;
+  return res.text();
+}
+
 export { WP_BASE_URL };

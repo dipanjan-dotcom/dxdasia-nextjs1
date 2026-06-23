@@ -1,0 +1,173 @@
+h1.hero-title {font-size: 90px;
+  max-width: 70%;
+  line-height: 90px;
+}
+#wpcf7-f10-o1 .form-contact-page label {
+  font-size: 18px;
+}
+#force-footer {display:none!important;}
+.price_holder .label-pricing {font-size: 24px;}
+.price_holder .list-pricing-table a span {font-size: 20px;}
+.price_holder .list-pricing-table a {align-items: baseline!important;}
+
+.teamsCarousel .elbzotech-wrapper-slider .swiper-slide .item-post .post-info h3 a {pointer-events: none;}
+.teamsCarousel .elbzotech-wrapper-slider .swiper-slide .item-post .list-inline-block a {pointer-events: none;}
+.teamsCarousel  .swiper-wrapper {justify-content:center;} 
+
+.certificationLogo .swiper-wrapper {justify-content:center;} 
+
+.bzotech-portfolio-template-default .single-post-media-format {display:none;}
+.bzotech-portfolio-template-default .content-post-default h2  span {font-weight: normal;
+  margin-left: 20px;
+  font-family: var(--bzo-body_typo-font-family);
+  font-size: 30px;
+  color: var(--bzo-body_typo-color);}
+.bzotech-portfolio-template-default .content-post-default img {  height: 500px;
+  width: 100%;
+  object-fit: cover;}
+
+.item-grid-post-style4 .post-info .post-title {font-size:36px;}
+.item-grid-post-style4 .single-portfolio .portfolio-intro h1 {margin-top:0;}
+.home  .elbzotech-swiper-slider .adv-thumb-link img {
+  filter: none;
+}
+.elementor-1472 .elementor-element.elementor-element-ee6a504 > .elementor-widget-container {
+  margin: 60px 0px 0px 0px;
+}
+.service-sec-2 ul {list-style: none;margin-top: 20px;
+  column-count: 2;}
+.service-sec-2 ul li i {color:#c9f31d; margin-right:5px;}
+.main-page-default {
+  padding:60px 0;
+}
+.sec-2-para ul {list-style:none;margin-top:20px;}
+.sec-2-para ul li i {color:#c9f31d;}
+.sec-2-para p i {color:#c9f31d;}
+
+#rl-gallery-container-1 .rl-gallery-item, #rl-gallery-container-2 .rl-gallery-item {border: 3px solid #c9f31d !important;border-radius: 10px;}
+.gal-img .rl-gallery-item img {object-position: top!important;}
+#rl-gallery-container-1 .rl-pagination.rl-pagination-bottom, #rl-gallery-container-2 .rl-pagination.rl-pagination-bottom {text-align: center;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+#rl-gallery-container-1 .rl-pagination.rl-pagination-bottom span.page-numbers, #rl-gallery-container-1 .rl-pagination.rl-pagination-bottom a.page-numbers {background: #4d4d4d;
+  min-width: 30px;
+  height: 30px;
+  display: inline-flex;
+	align-items:center;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 0 10px;}
+
+#rl-gallery-container-2 .rl-pagination.rl-pagination-bottom span.page-numbers, #rl-gallery-container-2 .rl-pagination.rl-pagination-bottom a.page-numbers {background: #4d4d4d;
+  min-width: 30px;
+  height: 30px;
+  display: inline-flex;
+	align-items:center;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 0 10px;}
+
+#rl-gallery-container-1 .rl-pagination.rl-pagination-bottom span.page-numbers.current, #rl-gallery-container-2 .rl-pagination.rl-pagination-bottom span.page-numbers.current {background: #c9f31d;
+  color: #000;}
+
+
+#rl-gallery-container-1 #rl-gallery-1.gal-img2 .rl-gallery-item img {height: 220px !important;object-position: top !important; object-fit: cover;}
+
+.linkedinFeed  .elfsight-app-4d0d4bcb-50fc-4a2d-8d06-8f8fc0d4e31d .Main__Inner-sc-1b0bd035-0 bKqeRd .WidgetBackground__Wrapper-sc-6ca35f7a-1 UpQU .WidgetBackground__Content-sc-6ca35f7a-2.kjKpSQ {display:none!important;}
+
+
+@media(max-width:1400px){
+	h1.hero-title {font-size: 70px;
+  line-height: 70px;
+}
+}
+@media (max-width: 991px) {
+  h1.hero-title {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+@media(max-width:767px){
+h2 {
+font-size: 34px;
+}
+.gal-img .rl-gallery-item {
+  height: 120px!important;
+}
+.gal-img .rl-gallery-item img {height: 120px!important;}	
+	.teamsCarousel .swiper-wrapper {display:block;}
+}
+
+@media(max-width:575px){
+	.banner-caption {text-align:center;}
+.banner-para {width:100% !important;}	
+	#who-we-are .e-con-inner {padding-top:0;}
+.core-team-left {padding: 0;}
+	.core-team-left .elementor-widget-container {padding:0!important;}
+.core-team-left .elementor-widget-container p {font-size:18px;}
+.certificationLogo {column-count: 2;
+  display: inline-block;
+  column-gap: 10px;}
+.certificationLogo .elementor-widget-image {margin:10px 0;vertical-align: top;
+    display: inline-block;}
+.certificationLogo .e-con-inner {margin:0;padding: 0;display: block;}	
+#blog-post .e-con-inner {padding-bottom:30px;}
+	.service-sec-1 {padding:30px 0px 0;}
+		.service-sec-1  .para {margin:30px 0 0!important;}
+.service-sec-1 .title64 {
+  font-size: 34px;
+} 
+	.service-sec-2	.e-con-inner {padding-top:30px;}
+.service-sec-2 .sec-2-inner { gap:10px;}	
+.service-sec-2 .sec-2-inner .sec-2-heading h2 {padding:20px 0 0!important;}
+.service-sec-2  .sec-2-para .text-css-e {padding:0!important;}
+.service-sec-3 .e-con-inner {padding-bottom:0px;}
+.service-sec-3 .e-con-inner >div >div{margin-bottom:0px;}
+.item-services-btn .elementor-widget-container {margin: 30px 0 0 !important;padding: 0;}	
+.service-sec-4 .title64 {
+  font-size: 34px;
+}
+.steps-inner {padding: 0 20px;}
+.stepBox {margin:0;}
+.service-sec-5 {padding-left: 20px;padding-right: 20px;}
+.service-sec-5 .e-con-inner {padding-top:10px;}	 
+	.why-choose	{gap: 10px;}
+.why-choose .e-con-inner {padding-top:10px;}
+.why-choose-heading h2 {}
+.why-choose-para .text-css-e {padding:0!important;}
+	.why-choose-para .text-css-e p {text-align:center;}
+	 .service-sec-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+	.service-sec-6 .e-con-inner {padding-top:10px;}	 
+	.service-sec-2a, .service-sec-6 {padding-left: 20px;padding-right: 20px;}
+	.service-sec-2a .e-con-inner {padding-top:10px;}
+.submenu-custom .elementor-element.elementor-element-64dd75a {
+    display: inline-block;
+  }
+.submenu-custom .elementor-element .elementor-widget {
+  margin-bottom: 20px;
+}
+	#wpcf7-f10-o1 .form-contact-page label {
+  font-size: 18px;
+}
+.sec-2-para h3 { font-size:28px;}
+#rl-gallery-container-1 .rl-pagination.rl-pagination-bottom {display: inline-block;}
+	#rl-gallery-container-1 .rl-pagination.rl-pagination-bottom span.page-numbers, #rl-gallery-container-1 .rl-pagination.rl-pagination-bottom a.page-numbers {margin: 5px;}
+.service-sec-2 ul {column-count:1;}
+#rl-gallery-container-2 .rl-pagination.rl-pagination-bottom span.page-numbers, #rl-gallery-container-2 .rl-pagination.rl-pagination-bottom a.page-numbers {margin: 0 2px;}
+h1.hero-title {
+    font-size: 30px;
+    max-width: 100%;
+    line-height: 30px;
+  }
+}
+
+#force-footer { display: none !important; }
+
+.elementor-element:has(.elbzotech-wrapper-slider-global-testimonial2) {
+    display: none !important;
+}

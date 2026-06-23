@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllPages, getPageBySlug } from "@/lib/wp";
+import { getAllPages, getPageBySlug, getElementorCss } from "@/lib/wp";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -28,7 +28,10 @@ export default async function Page({
   const page = await getPageBySlug(slug);
   if (!page) notFound();
 
-  const jsonLd = buildJsonLd(page);
+  const [jsonLd, elementorCss] = await Promise.all([
+    buildJsonLd(page),
+    getElementorCss(page.id),
+  ]);
 
   return (
     <article>
@@ -38,6 +41,7 @@ export default async function Page({
           dangerouslySetInnerHTML={{ __html: jsonLd }}
         />
       )}
+      {elementorCss && <style dangerouslySetInnerHTML={{ __html: elementorCss }} />}
       <h1 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
       <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
     </article>

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllPosts, getPostBySlug } from "@/lib/wp";
+import { getAllPosts, getPostBySlug, getElementorCss } from "@/lib/wp";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -28,7 +28,10 @@ export default async function BlogPost({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  const jsonLd = buildJsonLd(post);
+  const [jsonLd, elementorCss] = await Promise.all([
+    buildJsonLd(post),
+    getElementorCss(post.id),
+  ]);
 
   return (
     <article>
@@ -38,6 +41,7 @@ export default async function BlogPost({
           dangerouslySetInnerHTML={{ __html: jsonLd }}
         />
       )}
+      {elementorCss && <style dangerouslySetInnerHTML={{ __html: elementorCss }} />}
       <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
       <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
     </article>
