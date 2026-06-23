@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "@/styles/elementor-frontend.css";
 import "@/styles/wp-global-styles.css";
@@ -46,6 +47,9 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Script src="/scripts/jquery.min.js" strategy="afterInteractive" />
+        <Script src="/scripts/wp-config.js" strategy="afterInteractive" />
+        <Script src="/scripts/wp-theme.js" strategy="afterInteractive" />
       </body>
     </html>
   );
