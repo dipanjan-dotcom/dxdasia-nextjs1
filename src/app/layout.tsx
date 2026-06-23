@@ -12,6 +12,7 @@ import "@/styles/wp-mobile-menu.css";
 import "@/styles/wp-megamenu-1.css";
 import "@/styles/wp-megamenu-2.css";
 import "@/styles/wp-theme-full.css";
+import "@/styles/wp-responsive-lightbox.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 

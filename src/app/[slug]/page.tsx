@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllPages, getPageBySlug, getElementorCss } from "@/lib/wp";
+import {
+  getAllPages,
+  getPageBySlug,
+  getElementorCss,
+  getPluginInlineCss,
+  getPluginInlineJs,
+  fetchHtml,
+} from "@/lib/wp";
 import { buildMetadata, buildJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -28,10 +35,13 @@ export default async function Page({
   const page = await getPageBySlug(slug);
   if (!page) notFound();
 
-  const [jsonLd, elementorCss] = await Promise.all([
+  const [jsonLd, elementorCss, liveHtml] = await Promise.all([
     buildJsonLd(page),
     getElementorCss(page.id),
+    fetchHtml(page.link),
   ]);
+  const pluginInlineCss = liveHtml ? await getPluginInlineCss(liveHtml) : null;
+  const pluginInlineJs = liveHtml ? getPluginInlineJs(liveHtml) : null;
 
   return (
     <article>
@@ -42,6 +52,8 @@ export default async function Page({
         />
       )}
       {elementorCss && <style dangerouslySetInnerHTML={{ __html: elementorCss }} />}
+      {pluginInlineCss && <style dangerouslySetInnerHTML={{ __html: pluginInlineCss }} />}
+      {pluginInlineJs && <script dangerouslySetInnerHTML={{ __html: pluginInlineJs }} />}
       <h1 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
       <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
     </article>

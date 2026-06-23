@@ -70,4 +70,32 @@ export async function getElementorCss(postId: number): Promise<string | null> {
   return res.text();
 }
 
+async function fetchHtml(link: string): Promise<string | null> {
+  const res = await fetch(link, { next: { revalidate: 3600 } });
+  if (!res.ok) return null;
+  return res.text();
+}
+
+export async function getPluginInlineCss(html: string): Promise<string | null> {
+  const blocks = [...html.matchAll(/<style id='responsive-lightbox-[^']*-inline-css'[^>]*>([\s\S]*?)<\/style>/g)];
+  if (blocks.length === 0) return null;
+  // WordPress's REST API content renderer assigns gallery container IDs starting
+  // from 1 on every request, independently of the live page's numbering used when
+  // this CSS was scraped, so per-container #rl-gallery-container-N scoping would
+  // not match our markup. Drop that scoping and rely on the gallery type class.
+  return blocks
+    .map((m) => m[1].replace(/#rl-gallery-container-\d+\s+/g, ""))
+    .join("\n");
+}
+
+export function getPluginInlineJs(html: string): string | null {
+  const blocks = [
+    ...html.matchAll(/<script id="responsive-lightbox-[^"]*-js-before"[^>]*>([\s\S]*?)<\/script>/g),
+  ];
+  if (blocks.length === 0) return null;
+  return blocks.map((m) => m[1]).join("\n");
+}
+
+export { fetchHtml };
+
 export { WP_BASE_URL };
