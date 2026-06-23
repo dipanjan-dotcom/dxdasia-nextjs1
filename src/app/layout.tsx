@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import "@/styles/wp-theme-vars.css";
 import "@/styles/elementor-frontend.css";
 import "@/styles/wp-global-styles.css";
 import "@/styles/wp-kit-global.css";
